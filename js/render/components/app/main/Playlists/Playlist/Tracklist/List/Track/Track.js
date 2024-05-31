@@ -1,0 +1,17 @@
+import { trackDetails } from "./trackDetails/trackDetails.js"
+export function Track (someTrack){
+    const {trackCoverImgUrl, ...restTrackData} = someTrack
+    const container = document.createElement("li")
+    container.classList.add("track-element")
+
+    const trackCoverImg = document.createElement("img")
+    trackCoverImg.classList.add("track-cover-image")
+    trackCoverImg.src = trackCoverImgUrl
+
+    container.append(
+        trackCoverImg,
+        trackDetails(restTrackData)
+    )
+
+    return container
+}
